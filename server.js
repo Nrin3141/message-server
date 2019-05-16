@@ -1,9 +1,12 @@
+require('dotenv').config()
 const express = require("express");
 const cors = require("cors");
 const request = require("request");
 const { check, body, validationResult } = require("express-validator/check");
 const nodemailer = require("nodemailer");
-    const server = express();
+const secretKey = process.env.RECAPTCHA_API_PRIVATE_KEY;
+console.log(process.env.RECAPTCHA_API_PRIVATE_KEY);    
+const server = express();
     server.use(express.json());
     server.use(express.urlencoded());
     server.use(cors());
